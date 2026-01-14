@@ -20,6 +20,7 @@ class MuseumController extends Controller
             "country"=>$request->country,
             "year"=>$request->year,
             "description"=>$request->description,
+            "img"=>$request->file("img") ? $request->store("image", "public") : "/media/default.png"
         ]);
         return redirect(route("museums_create_"));
     }

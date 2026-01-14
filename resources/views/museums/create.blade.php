@@ -4,7 +4,7 @@
         paese (country), 
         anno di apertura  
         descrizione della storia del museo. --}}
-    <form action="{{route("museums_submit_")}}" method="POST" class="container">
+    <form action="{{route("museums_submit_")}}" method="POST" enctype="multipart/form-data" class="container">
         @csrf
         <div class="mb-3">
             <label for="nome" class="form-label">Nome museo</label>
@@ -21,6 +21,10 @@
         <div class="mb-3">
             <label for="descrizione" class="form-label">Descrizione</label>
             <input type="text" id="descrizione" class="form-control" placeholder="breve descrizione del museo" name="description">
+        </div>
+        <div class="mb-3">
+            <label for="img" class="form-label">immagine</label>
+            <input type="file" id="img" class="form-control" name="img">
         </div>
             
         <button type="submit" class="btn btn-primary">invia</button>
