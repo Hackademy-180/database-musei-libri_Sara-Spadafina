@@ -8,19 +8,31 @@
         @csrf
         <div class="mb-3">
             <label for="nome" class="form-label">Nome museo</label>
-            <input type="text" id="nome" class="form-control" placeholder="nome museo" name="name">
+            <input type="text" id="nome" class="form-control @error('name') is-invalid @enderror" placeholder="nome museo" name="name" value="{{old("name")}}">
+            @error('name')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="paese" class="form-label">Paese</label>
-            <input type="text" id="paese" class="form-control" placeholder="paese" name="country">
+            <input type="text" id="paese" class="form-control" placeholder="paese" name="country" value="{{old("country")}}">
+            @error('country')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="anno" class="form-label">Anno</label>
-            <input type="number" id="anno" class="form-control" placeholder="anno di nascita del museo" name="year">
+            <input type="number" id="anno" class="form-control" placeholder="anno di nascita del museo" name="year" value="{{old("year")}}">
+            @error('year')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="descrizione" class="form-label">Descrizione</label>
-            <input type="text" id="descrizione" class="form-control" placeholder="breve descrizione del museo" name="description">
+            <input type="text" id="descrizione" class="form-control" placeholder="breve descrizione del museo" name="description" value="{{old("name")}}">
+            @error('description')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="img" class="form-label">immagine</label>

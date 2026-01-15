@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MuseumRequest;
 use App\Models\Museum;
 use Illuminate\Http\Request;
 
@@ -14,13 +15,14 @@ class MuseumController extends Controller
     public function museumsCreate() {
     return view('museums.create');
     }
-    public function museumsSubmit(Request $request) {
+    public function museumsSubmit(MuseumRequest $request) {
+        
         Museum::create([
             "name"=>$request->name,
             "country"=>$request->country,
             "year"=>$request->year,
             "description"=>$request->description,
-            "img"=>$request->file("img") ? $request->store("image", "public") : "/media/default.png"
+            "img"=>$request->file("img") ? $request->file("img")->store("image", "public") : "/media/default.png"
         ]);
         return redirect(route("museums_create_"));
     }
