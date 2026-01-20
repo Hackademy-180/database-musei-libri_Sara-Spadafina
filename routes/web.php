@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\MagazineController;
 use App\Http\Controllers\MuseumController;
 use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
@@ -14,3 +15,11 @@ Route::post('/books/submit', [BookController::class, "booksSubmit"])->name("book
 Route::get('/museums/index', [MuseumController::class, "museumsIndex"])->name("museums_");
 Route::get('/museums/create', [MuseumController::class, "museumsCreate"])->name("museums_create_");
 Route::post('/museums/submit', [MuseumController::class, "museumsSubmit"])->name("museums_submit_");
+// magazine
+Route::get('/magazines/index', [MagazineController::class, "index"])->name("magazines_");
+Route::get('/magazines/create', [MagazineController::class, "create"])->name("magazines_create_");
+Route::post('/magazines/submit', [MagazineController::class, "store"])->name("magazines_submit_");
+Route::get('/magazines/show/{magazine}', [MagazineController::class, "show"])->name("magazines_show_");
+Route::get('/magazines/edit/{magazine}', [MagazineController::class, "edit"])->name("magazines_edit_");
+Route::put('/magazines/update/{magazine}', [MagazineController::class, "update"])->name("magazines_update_");
+Route::delete('/magazines/destroy/{magazine}', [MagazineController::class, "destroy"])->name("magazines_destroy_");

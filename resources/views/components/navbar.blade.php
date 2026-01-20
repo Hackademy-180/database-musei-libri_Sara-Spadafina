@@ -21,6 +21,37 @@
              <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{route("museums_create_")}}">aggiungi musei</a>
             </li>
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{route("magazines_")}}">Giornali</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{route("magazines_create_")}}">Crea risora</a>
+            </li>
+            
+            {{-- utente loggato --}}
+            @auth
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Benvenuto {{Auth::user()->name}}
+                </a>
+                <ul class="dropdown-menu">
+                    <form method="POST" action="{{route("logout")}}">
+                    @csrf
+                        <button type="submit" class="dropdown-item" >Logout</button>
+                    </form>
+                </ul>
+            </li>
+            @else
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Benvenuto 
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{route("register")}}">Registrati</a></li>
+                    <li><a class="dropdown-item" href="{{route("login")}}">Login</a></li>
+                </ul>
+            </li>
+            @endauth
         </ul>
         <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
