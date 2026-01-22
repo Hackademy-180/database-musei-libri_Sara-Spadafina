@@ -27,7 +27,16 @@
             <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{route("magazines_create_")}}">Crea risora</a>
             </li>
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{route("posts_")}}">posts</a>
+            </li>
+            @auth
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{route("posts_create_")}}">Crea post</a>
+            </li>
+            @endauth
             
+
             {{-- utente loggato --}}
             @auth
             <li class="nav-item dropdown">

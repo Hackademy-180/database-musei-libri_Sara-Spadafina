@@ -3,6 +3,7 @@
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\MagazineController;
 use App\Http\Controllers\MuseumController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
 //home
@@ -23,3 +24,12 @@ Route::get('/magazines/show/{magazine}', [MagazineController::class, "show"])->n
 Route::get('/magazines/edit/{magazine}', [MagazineController::class, "edit"])->name("magazines_edit_");
 Route::put('/magazines/update/{magazine}', [MagazineController::class, "update"])->name("magazines_update_");
 Route::delete('/magazines/destroy/{magazine}', [MagazineController::class, "destroy"])->name("magazines_destroy_");
+
+// post
+Route::get('/posts/index', [PostController::class, "index"])->name("posts_");
+Route::get('/posts/create', [PostController::class, "create"])->name("posts_create_");
+Route::post('/posts/submit', [PostController::class, "store"])->name("posts_submit_");
+Route::get('/posts/show/{post}', [PostController::class, "show"])->name("posts_show_");
+Route::get('/posts/edit/{post}', [PostController::class, "edit"])->name("posts_edit_");
+
+
